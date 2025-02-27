@@ -1,0 +1,13 @@
+@keyframes flipOut {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+.flip-out {
+  animation: flipOut 0.5s forwards;
+}
+
+/*# sourceMappingURL=animation.css.map */

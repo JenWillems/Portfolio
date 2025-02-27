@@ -1,0 +1,160 @@
+$primary-font: 'UnifrakturMaguntia', cursive;
+$secondary-font: 'IM Fell English', serif;
+$background-color: #0a0a0a;
+$text-color: #e0e0e0;
+$border-color: #777;
+$accent-color: #ccc;
+$box-shadow-color: rgba(255, 255, 255, 0.15);
+$dark-overlay: rgba(0, 0, 0, 0.7);
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&family=UnifrakturMaguntia&display=swap');
+
+body {
+    background-color: $background-color;
+    color: $text-color;
+    font-family: $primary-font;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    text-shadow: 3px 3px 5px $dark-overlay;
+}
+
+.portfolio-container {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    padding: 3rem;
+    border: 4px double $border-color;
+    background: #1a1a1a;
+    box-shadow: 0px 0px 15px 7px $box-shadow-color;
+    max-width: 950px;
+    position: relative;
+    font-family: $secondary-font;
+}
+
+header {
+    border-bottom: 3px double $border-color;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 80px;
+    height: 80px;
+    border: 3px solid $border-color;
+    background: #222;
+}
+
+.title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $accent-color;
+    border-bottom: 3px double $border-color;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 2rem;
+    font-family: $secondary-font;
+    color: lighten($text-color, 15%);
+    font-style: italic;
+}
+
+.character-sheet {
+    border: 4px double $border-color;
+    padding: 2rem;
+    margin: 3rem auto;
+    background: #161616;
+    box-shadow: 0px 0px 15px $box-shadow-color;
+    max-width: 800px;
+    font-family: $secondary-font;
+    position: relative;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+    border: 8px solid $border-color;
+}
+
+.character-sheet::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 10px double darken($border-color, 20%);
+    clip-path: polygon(12% 0%, 88% 0%, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0% 88%, 0% 12%);
+    z-index: -1;
+}
+
+.character-sheet::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: url('data:image/svg+xml;charset=UTF-8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><pattern id="gothic-border" patternUnits="userSpaceOnUse" width="50" height="50"><path d="M25 0 L50 25 L25 50 L0 25 Z" stroke="%23777" stroke-width="2" fill="none"/></pattern><rect width="100%" height="100%" fill="url(%23gothic-border)"/></svg>');
+    z-index: -2;
+    opacity: 0.5;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.character-info,
+.disciplines,
+.attributes {
+    border: 3px solid $border-color;
+    padding: 1.5rem;
+    background: #222;
+    box-shadow: 0px 0px 12px $box-shadow-color;
+    position: relative;
+    clip-path: polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%);
+}
+
+h3 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid $border-color;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: $accent-color;
+    text-shadow: 2px 2px 4px $dark-overlay;
+}
+
+.dots {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: $accent-color;
+}
+
+.dots span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid $accent-color;
+    margin-right: 3px;
+}
+
+.dots span.filled {
+    background: $accent-color;
+}
+
+.health-status span {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid $accent-color;
+    text-align: center;
+    line-height: 18px;
+    font-size: 12px;
+    margin-right: 5px;
+}
