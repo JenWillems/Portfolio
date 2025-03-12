@@ -1,11 +1,12 @@
-$primary-font: 'UnifrakturMaguntia', cursive;
+$primary-font: 'New Gothic Style', sans-serif;
 $secondary-font: 'IM Fell English', serif;
 $background-color: #0a0a0a;
 $text-color: #e0e0e0;
 $border-color: #777;
 $accent-color: #ccc;
 $box-shadow-color: rgba(255, 255, 255, 0.15);
-$dark-overlay: rgba(0, 0, 0, 0.7);
+$dark-overlay: rgba(0, 0, 0, 0.3);
+$button-font-size: 20px;
 
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&family=UnifrakturMaguntia&display=swap');
 
@@ -19,78 +20,75 @@ body {
     text-shadow: 3px 3px 5px $dark-overlay;
 }
 
-nav {
-    background: #1a1a1a;
-    border-bottom: 3px double $border-color;
-    padding: 1rem 0;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.15);
-
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-
-        li {
-            display: inline;
-        }
-
-        a {
-            font-family: 'UnifrakturMaguntia', cursive;
-            text-decoration: none;
-            color: $text-color;
-            font-size: 1.8rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            padding: 0.5rem 1rem;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-
-            &:hover {
-                color: $accent-color;
-                border-bottom: 2px double $border-color;
-            }
-        }
-    }
-}
-
-.portfolio-container {
-    margin: auto;
-    text-align: center;
-    border: 4px double $border-color;
-    background: #1a1a1a;
-    box-shadow: 0px 0px 15px 7px $box-shadow-color;
-    position: relative;
-    font-family: $secondary-font;
-}
 
 header {
+    position: relative; /* Create positioning context for ::before */
     border-bottom: 3px double $border-color;
-    padding-bottom: 1.5rem;
-    margin-bottom: 2.5rem;
-    text-align: center;
+    padding: 1.5rem;
+    background-image: url("/public/img/banner_bg_template.jpg");
+    background-size: cover;
+    background-position: center;
+
+    &::before {
+        content: ''; /* Necessary to make the pseudo-element visible */
+        position: absolute; /* Position it absolutely within the header */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $dark-overlay; /* Black overlay with 50% opacity */
+        z-index: 1; /* Ensure overlay is above the background image but below the content */
+    }
+
+    h1{
+        font-family: $primary-font;
+        letter-spacing: 5px;
+        font-size: 6rem;
+        color: $accent-color;
+        border-bottom: 3px double $border-color;
+        display: inline-block;
+        padding-bottom: 1rem;
+    }
+    h2{
+        position: relative;
+        z-index: 2;
+        margin: 0;
+    }
+
+    .bio{
+        font-family: $secondary-font;
+        position: relative;
+        width: 50%;
+        z-index: 2;
+
+        button{
+            background: $background-color;
+            color: $text-color;
+            padding: 10px 30px 10px 30px;
+            font-family: $primary-font;
+            font-size: $button-font-size;
+            letter-spacing: 3px;
+            border: 4px double $border-color;
+
+        }
+            button:hover{
+            background-color: $accent-color;
+            color: $background-color;
+            }
+    }
+
+}
+
+.banner_title{
+     display: flex;
+    align-items: center;
     position: relative;
-}
-
-.logo-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 80px;
-    height: 80px;
-    border: 3px solid $border-color;
-    background: #222;
-}
-
-.title {
-    font-size: 4rem;
-    letter-spacing: 3px;
-    color: $accent-color;
-    border-bottom: 3px double $border-color;
-    display: inline-block;
-    padding-bottom: 1rem;
+    z-index: 2;
+    img{
+        width: 140px;
+        height: 120px;
+        margin-right: 30px;
+    }
 }
 
 .subtitle {
@@ -99,8 +97,91 @@ header {
     color: lighten($text-color, 15%);
     font-style: italic;
 }
+//-------------------------------------------------------------End Banner + Nav------------------------------------------------------------
+//-------------------------------------------------------------Begin Example project Grid--------------------------------------------------
+.grid_projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 60px;
+    padding: 20px;
+    background: #000; // Deep black background for contrast
+}
 
-.character-sheet {
+.project-container {
+    display: flex;
+    justify-content: center;
+}
+
+.project-card {
+    position: relative;
+    background: #111; // Dark, muted black background
+    border: 2px solid #666; // Subtle ornate border
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        border-color: #ddd;
+    }
+
+    img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        filter: grayscale(100%) brightness(90%);
+        transition: filter 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            filter: grayscale(0%) brightness(100%);
+            transform: scale(1.02);
+        }
+    }
+
+    h5 {
+        font-family: $primary-font;
+        font-size: 1.8rem;
+        color: #f8f8f8;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    p {
+        font-size: 1rem;
+        color: #ccc;
+        font-family: 'Cormorant Garamond', serif;
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+
+    button {
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-family: 'Cormorant Garamond', serif;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+    }
+}
+
+//-------------------------------------------------------------End Example Project Grid--------------------------------------------------
+.character_sheet {
     border: 4px double $border-color;
     padding: 2rem;
     margin: 3rem auto;
@@ -109,7 +190,7 @@ header {
     max-width: 800px;
     font-family: $secondary-font;
     position: relative;
-    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%); // Diffcult ass tempalte border
     border: 8px solid $border-color;
 
     &::before {
@@ -134,14 +215,14 @@ header {
     }
 }
 
-.character-grid {
+.character_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     text-align: left;
 }
 
-.character-info,
+.character_info,
 .disciplines,
 .attributes {
     border: 3px solid $border-color;
@@ -181,7 +262,7 @@ h3 {
     }
 }
 
-.health-status span {
+.health_status span {
     display: inline-block;
     width: 18px;
     height: 18px;
