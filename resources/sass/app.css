@@ -9,15 +9,45 @@ body {
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
+nav {
+  background: #1a1a1a;
+  border-bottom: 3px double #777;
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.15);
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+nav ul li {
+  display: inline;
+}
+nav ul a {
+  font-family: "UnifrakturMaguntia", cursive;
+  text-decoration: none;
+  color: #e0e0e0;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+nav ul a:hover {
+  color: #ccc;
+  border-bottom: 2px double #777;
+}
+
 .portfolio-container {
-  width: 85%;
   margin: auto;
   text-align: center;
-  padding: 3rem;
   border: 4px double #777;
   background: #1a1a1a;
   box-shadow: 0px 0px 15px 7px rgba(255, 255, 255, 0.15);
-  max-width: 950px;
   position: relative;
   font-family: "IM Fell English", serif;
 }
@@ -42,7 +72,6 @@ header {
 
 .title {
   font-size: 4rem;
-  text-transform: uppercase;
   letter-spacing: 3px;
   color: #ccc;
   border-bottom: 3px double #777;
@@ -69,7 +98,6 @@ header {
   clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
   border: 8px solid #777;
 }
-
 .character-sheet::before {
   content: "";
   position: absolute;
@@ -81,7 +109,6 @@ header {
   clip-path: polygon(12% 0%, 88% 0%, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0% 88%, 0% 12%);
   z-index: -1;
 }
-
 .character-sheet::after {
   content: "";
   position: absolute;
@@ -123,7 +150,6 @@ h3 {
   letter-spacing: 2px;
   color: #ccc;
 }
-
 .dots span {
   display: inline-block;
   width: 12px;
@@ -133,7 +159,6 @@ h3 {
   border: 1px solid #ccc;
   margin-right: 3px;
 }
-
 .dots span.filled {
   background: #ccc;
 }
