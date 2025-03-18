@@ -17,6 +17,7 @@
         </div>
 
         </header>
+{{--       ---------------------------------------------- project example---------------------------------------------------------}}
         <section class="example_project">
             <div class="grid_projects">
                     <div class="project-card">
@@ -43,12 +44,18 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis eos maiores minima quibusdam sequi tenetur velit! Ab aliquam cumque dignissimos eligendi ipsa, laborum nemo nostrum odit perspiciatis reiciendis rerum!</p>
                                 <button onclick="window.open('https://www.happyoutdoorliving.nl/', '_blank')">Visit Site</button>
                             </div>
+                            <div class="project-card">
+                                <a href="https://www.happyoutdoorliving.nl/" target="_blank">
+                                    <img src="{{ asset('/img/template_img.png') }}" alt="Happy Outdoor Living">
+                                </a>
+                                <h5>Happy Outdoor Living</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis eos maiores minima quibusdam sequi tenetur velit! Ab aliquam cumque dignissimos eligendi ipsa, laborum nemo nostrum odit perspiciatis reiciendis rerum!</p>
+                                <button onclick="window.open('https://www.happyoutdoorliving.nl/', '_blank')">Visit Site</button>
+                            </div>
                     </div>
-
-
             </div>
         </section>
-
+{{----------------------------------------project example---------------------------------------------------------------}}
         <section class="character_sheet">
             <h2>Character Sheet</h2>
             <div class="character_grid">
@@ -70,6 +77,30 @@
                     <p>Stamina: <span class="dots">●○○○○</span></p>
                 </div>
             </div>
+
+
         </section>
+
+
+        <div class="your-slider">
+            <div><img src="image1.jpg" alt="Image 1"></div>
+            <div><img src="image2.jpg" alt="Image 2"></div>
+            <div><img src="image3.jpg" alt="Image 3"></div>
+        </div>
+
+
+
+        @push('scripts')
+            <script>
+                $(document).ready(function(){
+                    $('.your-class').slick({
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 2000
+                    });
+                });
+            </script>
+@endpush
 @endsection
 

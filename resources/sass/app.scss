@@ -101,7 +101,7 @@ header {
 //-------------------------------------------------------------Begin Example project Grid--------------------------------------------------
 .grid_projects {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 60px;
     padding: 20px;

@@ -10,19 +10,22 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.cdnfonts.com/css/new-gothic-style" rel="stylesheet">
 
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
 
     <!-- Styles -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="{{ asset('css/flip.css') }}">
-    <script src="jquery-3.7.1.min.js"></script>
+
 </head>
 <body>
-
 <div id="content">
     @yield('content')
 </div>
 
-<script src="{{ asset('js/flip.js') }}"></script>
+@stack('scripts')
 </body>
 </html>
