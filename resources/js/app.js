@@ -10,12 +10,16 @@ window.$ = window.jQuery = $;
 
 $(document).ready(function(){
     $('.your-slider').slick({
-        slidesToShow: 3,  // Number of slides to show at once
+        slidesToShow: 2,  // Number of slides to show at once
         slidesToScroll: 1, // Number of slides to scroll
         autoplay: true,    // Auto slide
-        autoplaySpeed: 2000, // Time between slides
+        autoplaySpeed: 5000, // Time between slides
         dots: true,        // Show navigation dots
-        arrows: true       // Show next/prev arrows
+        arrows: true,      // Show next/prev arrows
+        speed: 600,        // Smooth transition
+        infinite: true,    // Infinite loop
+        centerMode: true,  // Center active slide
+        variableWidth: false // Ensures consistent slide width
     });
 });
 

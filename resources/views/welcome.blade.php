@@ -77,30 +77,58 @@
                     <p>Stamina: <span class="dots">●○○○○</span></p>
                 </div>
             </div>
-
-
         </section>
 
 
-        <div class="your-slider">
-            <div><img src="image1.jpg" alt="Image 1"></div>
-            <div><img src="image2.jpg" alt="Image 2"></div>
-            <div><img src="image3.jpg" alt="Image 3"></div>
-        </div>
+        <section class="slider-test">
+            <div class="your-slider">
+                <div class="slide">
+                    <img src="{{ asset('/img/template_img.png') }}" alt="Image 1">
+                    <h3>Project One</h3>
+                    <p>A dark and elegant masterpiece that echoes the past.</p>
+                </div>
+                <div class="slide">
+                    <img src="{{ asset('/img/template_img.png') }}" alt="Image 2">
+                    <h3>Project Two</h3>
+                    <p>An eerie yet beautiful creation shrouded in mystery.</p>
+                </div>
+                <div class="slide">
+                    <img src="{{ asset('/img/template_img.png') }}" alt="Image 3">
+                    <h3>Project Three</h3>
+                    <p>A gothic marvel standing against the test of time.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="gothic-footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h2>Contact Us</h2>
+                    <p>Email: contact@example.com</p>
+                    <p>Phone: +123 456 7890</p>
+                    <p>Location: A location near by</p>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form action="{{ route('contact.store') }}" method="POST">
+                        @csrf
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="phone" placeholder="Your Phone (Optional)">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </footer>
 
 
 
-        @push('scripts')
-            <script>
-                $(document).ready(function(){
-                    $('.your-class').slick({
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        autoplay: true,
-                        autoplaySpeed: 2000
-                    });
-                });
-            </script>
-@endpush
+
+
+
 @endsection
 
