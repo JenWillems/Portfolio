@@ -14,69 +14,42 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores autem blanditiis commodi, consectetur corporis dignissimos dolor fugit id laboriosam molestias necessitatibus odio perferendis quam qui quidem suscipit ut vero
             . Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos ex facilis fugiat in laboriosam nemo praesentium quam reprehenderit sit. Corporis inventore laborum obcaecati officia quaerat ratione repellendus rerum voluptas.</p>
             <button>Switch style</button>
+            <img src="{{asset('img/border_le_sombra_v1.png')}}" alt="le sombra border">
         </div>
 
         </header>
 {{--       ---------------------------------------------- project example---------------------------------------------------------}}
-        <section class="example_project">
-            <div class="grid_projects">
-                    <div class="project-card">
-                        <a href="https://www.happyoutdoorliving.nl/" target="_blank">
-                            <img src="{{ asset('/img/template_img.png') }}" alt="Happy Outdoor Living">
-                        </a>
-                        <h5>Happy Outdoor Living</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis eos maiores minima quibusdam sequi tenetur velit! Ab aliquam cumque dignissimos eligendi ipsa, laborum nemo nostrum odit perspiciatis reiciendis rerum!</p>
-                        <button onclick="window.open('https://www.happyoutdoorliving.nl/', '_blank')">Visit Site</button>
-                    </div>
-                        <div class="project-card">
-                            <a href="https://www.happyoutdoorliving.nl/" target="_blank">
-                                <img src="{{ asset('/img/template_img.png') }}" alt="Happy Outdoor Living">
-                            </a>
-                            <h5>Happy Outdoor Living</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis eos maiores minima quibusdam sequi tenetur velit! Ab aliquam cumque dignissimos eligendi ipsa, laborum nemo nostrum odit perspiciatis reiciendis rerum!</p>
-                            <button onclick="window.open('https://www.happyoutdoorliving.nl/', '_blank')">Visit Site</button>
-                        </div>
-                            <div class="project-card">
-                                <a href="https://www.happyoutdoorliving.nl/" target="_blank">
-                                    <img src="{{ asset('/img/template_img.png') }}" alt="Happy Outdoor Living">
-                                </a>
-                                <h5>Happy Outdoor Living</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis eos maiores minima quibusdam sequi tenetur velit! Ab aliquam cumque dignissimos eligendi ipsa, laborum nemo nostrum odit perspiciatis reiciendis rerum!</p>
-                                <button onclick="window.open('https://www.happyoutdoorliving.nl/', '_blank')">Visit Site</button>
-                            </div>
-                            <div class="project-card">
-                                <a href="https://www.happyoutdoorliving.nl/" target="_blank">
-                                    <img src="{{ asset('/img/template_img.png') }}" alt="Happy Outdoor Living">
-                                </a>
-                                <h5>Happy Outdoor Living</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis eos maiores minima quibusdam sequi tenetur velit! Ab aliquam cumque dignissimos eligendi ipsa, laborum nemo nostrum odit perspiciatis reiciendis rerum!</p>
-                                <button onclick="window.open('https://www.happyoutdoorliving.nl/', '_blank')">Visit Site</button>
-                            </div>
-                    </div>
-            </div>
+        <section class="about_me">
+            <h3>lorem ippsum</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque cupiditate dolorem ea eos, facere hic id illum iusto laborum natus nemo nisi porro quibusdam quisquam quo, quod reiciendis repudiandae sit.</p>
+
         </section>
 {{----------------------------------------project example---------------------------------------------------------------}}
         <section class="character_sheet">
             <h2>Character Sheet</h2>
             <div class="character_grid">
-                <div class="character_info">
-                    <p><strong>Name:</strong> Jennifer Willems</p>
-                    <p><strong>Clan:</strong> Toreador</p>
-                    <p><strong>Concept:</strong> Shadow Artist</p>
-                    <p><strong>Generation:</strong> 11th</p>
-                </div>
-                <div class="disciplines">
-                    <h3>Disciplines</h3>
-                    <p>Design: <span class="dots">●●○○○</span></p>
-                    <p>Front-end <span class="dots">●●●○○</span></p>
-                </div>
-                <div class="attributes">
-                    <h3>Attributes</h3>
-                    <p>Strength: <span class="dots">●●○○○</span></p>
-                    <p>Dexterity: <span class="dots">●●●○○</span></p>
-                    <p>Stamina: <span class="dots">●○○○○</span></p>
-                </div>
-            </div>
+                @foreach ($websites as $website)
+                    <div class="character_info">
+                        <p><strong>Name:</strong> {{ $website->name }}</p>
+                        <p><strong>Customer:</strong> {{ $website->customer }}</p>
+                        <p><strong>Type:</strong> {{ $website->type }}</p>
+                        <p><strong>Development:</strong> {{ $website->development }}</p>
+                        <p><strong>Concept:</strong> {{ $website->concept }}</p>
+                    </div>
+
+                    <div class="disciplines">
+                        <h3>Disciplines</h3>
+                        <p>Design: <span class="dots">{{ generateDots($website->design) }}</span></p>
+                        <p>Front-end: <span class="dots">{{ generateDots($website->frontend) }}</span></p>
+                        <p>Back-end: <span class="dots">{{ generateDots($website->backend) }}</span></p>
+                        <p>Database: <span class="dots">{{ generateDots($website->database) }}</span></p>
+                    </div>
+
+                    <button>
+                        <a href="{{ $website->url }}" target="_blank">Visit Website</a>
+                    </button>
+            @endforeach
+
         </section>
 
 
