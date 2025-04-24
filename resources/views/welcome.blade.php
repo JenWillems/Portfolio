@@ -5,6 +5,15 @@
 @section('content')
 <body>
         <header>
+            <nav>
+                <img src="{{asset('img/little_guy.png')}}" alt="de logo van de website">
+                <a href="#">About</a>
+                <a href="#">Developement</a>
+                <a href="#">UX Design</a>
+                <a href="#">Contact</a>
+            </nav>
+
+
             <div class="banner_title">
                 <img src="{{ asset('img/template_img.png') }}" alt="Image">
                 <h1 >Jennifer Willems</h1>
