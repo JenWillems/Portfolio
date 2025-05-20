@@ -39,7 +39,6 @@
             <div class="character_grid">
                 @foreach ($websites as $website)
                     <div class="character_info">
-                        <h3>Project details</h3>
                         <p><strong>Name:</strong> {{ $website->name }}</p>
                         <p><strong>Customer:</strong> {{ $website->customer }}</p>
                         <p><strong>Type:</strong> {{ $website->type }}</p>
